@@ -1,0 +1,11 @@
+.expense-filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+select{
+    padding: 0.5rem;
+    border-radius: 5px;
+    font-size: 1rem;
+}

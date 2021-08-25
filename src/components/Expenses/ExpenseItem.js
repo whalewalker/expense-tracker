@@ -2,15 +2,15 @@ import React from 'react';
 import ExpenseDate from "./ExpenseDate";
 import "./ExpenseItem.css";
 
-const ExpenseItem = ({otherProps}) => {
+const ExpenseItem = ({title, date, amount}) => {
     return (
         <div className="expense-item">
             <div className="title-wrapper">
-                <p className="title">{otherProps.title}</p>
-                <ExpenseDate date={otherProps.date}/>
+                <p className="title">{title}</p>
+                <ExpenseDate date={date}/>
             </div>
             <div className="price-wrapper">
-                <p>${otherProps.price}</p>
+                <p>${amount}</p>
             </div>
         </div>
     );
