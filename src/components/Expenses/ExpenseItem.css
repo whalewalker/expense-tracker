@@ -1,0 +1,30 @@
+.expense-item{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1.5rem 0;
+    background-color: #434243;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.expense-item .title-wrapper{
+    display: flex;
+    align-items: center;
+    flex-direction: row-reverse;
+}
+
+.title{
+    margin-left: 1rem;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    font-weight: bolder;
+}
+
+.price-wrapper{
+    background-color: #3b0251;
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 0.7rem 1rem;
+}
