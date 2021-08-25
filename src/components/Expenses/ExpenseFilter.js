@@ -2,6 +2,7 @@ import React from 'react';
 import "./ExpenseFilter.css"
 
 const ExpenseFilter = ({onFilteredYear, selected}) => {
+
     return (
         <div className="expense-filter">
             <h3>Filter by year</h3>

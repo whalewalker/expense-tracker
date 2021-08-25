@@ -8,7 +8,7 @@ function App() {
     {
       id: 0,
       title: "toilet paper",
-      amount: "2. 57",
+      amount: "2.57",
       date: new Date(2020, 10, 3)
     },
     {
@@ -20,13 +20,13 @@ function App() {
     {
       id: 2,
       title: "new tv",
-      amount: "340.7",
+      amount: "30.7",
       date: new Date(2021, 8, 2)
     },
     {
       id: 3,
       title: "iphone",
-      amount: "100.9",
+      amount: "10.9",
       date: new Date(2020, 3, 3)
     }
   ]

@@ -48,6 +48,7 @@
     text-transform: capitalize;
     background-color: #3b0251;
     color: white;
+    margin-right: 1rem;
 }
 
 @media screen and (max-width: 950px){
