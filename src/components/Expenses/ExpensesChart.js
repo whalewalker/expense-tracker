@@ -10,8 +10,6 @@ const ExpensesChart = ({expenses}) => {
         chartDataPoint[index] = {label: month, value: 0}
     )
 
-    console.log(chartDataPoint)
-
     for (const expense of expenses) {
         const expenseMonth = expense.date.getMonth();
         chartDataPoint[expenseMonth].value += parseInt(expense.amount);

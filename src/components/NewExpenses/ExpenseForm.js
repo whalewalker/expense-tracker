@@ -3,8 +3,11 @@ import "./ExpenseForm.css";
 import ExpenseButton from "./ExpenseButton";
 
 const ExpenseForm = ({onSaveNewExpense}) => {
-    const [newExpense, setNewExpense] = useState({});
+    const INITIAL_STATE = {title: '', amount: '', date: ''};
+
+    const [newExpense, setNewExpense] = useState(INITIAL_STATE);
     const [show, setShow] = useState(false);
+    const [isValid, setIsValid] = useState(true);
 
     const showHandler = () => {
         setShow(true);
@@ -21,12 +24,28 @@ const ExpenseForm = ({onSaveNewExpense}) => {
         });
     }
 
+    function validateUserInput(value) {
+        return newExpense[value].trim().length === 0;
+    }
+
     const submitHandler = event => {
         event.preventDefault();
+
+        const values = Object.keys(newExpense);
+
+        for (const value of values) {
+            if (validateUserInput(value)) {
+                setIsValid(false);
+                return;
+            }
+        }
         onSaveNewExpense(newExpense);
-        setNewExpense({});
+        setNewExpense(INITIAL_STATE);
         setShow(false);
+        setIsValid(true);
     }
+
+
 
     const {title, amount, date} = newExpense;
 
@@ -38,19 +57,19 @@ const ExpenseForm = ({onSaveNewExpense}) => {
             <form onSubmit={submitHandler} className="expense-form">
                 <div>
                     <div className="form-control">
-                        <label>title</label>
-                        <input value={title} onChange={newExpenseHandler} type="text" name="title"
+                        <label style={{color: !isValid && 'red'}}>title</label>
+                        <input style={{border: !isValid && '1px solid red'}} value={title} onChange={newExpenseHandler} type="text" name="title"
                                placeholder="Enter title"/>
                     </div>
 
                     <div className="form-control">
-                        <label>amount</label>
-                        <input value={amount} onChange={newExpenseHandler} type="number" name="amount" step="0.01"
+                        <label style={{color: !isValid && 'red'}}>amount</label>
+                        <input style={{border: !isValid && '1px solid red'}} value={amount} onChange={newExpenseHandler} type="number" name="amount" step="0.01"
                                min="0.01" placeholder="Enter amount"/>
                     </div>
                     <div className="form-control">
-                        <label>date</label>
-                        <input value={date} onChange={newExpenseHandler} type="date" name="date" min="2019-01-01"
+                        <label style={{color: !isValid && 'red'}}>date</label>
+                        <input style={{border: !isValid && '1px solid red'}} value={date} onChange={newExpenseHandler} type="date" name="date" min="2019-01-01"
                                max="2022-12-31"/>
                     </div>
                 </div>

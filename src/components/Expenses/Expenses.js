@@ -17,8 +17,16 @@ const Expenses = ({items}) => {
 
     let expenseContent = <h3 className="no-expense">No expenses found</h3>
 
+    const deleteHandler  = e =>{
+
+    }
+
+    const editHandler  = e =>{
+
+    }
+
     if (filteredExpenseByYear.length > 0){
-        expenseContent = filteredExpenseByYear.map(item => <ExpenseItem key={item.id} {...item}/>);
+        expenseContent = filteredExpenseByYear.map(item => <ExpenseItem onDelete={deleteHandler}  onEdit={editHandler} key={item.id} {...item}/>);
     }
 
     return (
